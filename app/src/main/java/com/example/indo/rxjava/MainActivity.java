@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
 import io.reactivex.Flowable;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG = MainActivity.class.getSimpleName();
     Button btnRx;
     TextView result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     *Example using Flowable RXjava
      */
     private void doSomeWork(){
-        Flowable<Integer> observable = Flowable.just(1,2);
+        Flowable<Integer> observable = Flowable.just(1,2,3,4,5,6);
 
         observable.reduce(9, new BiFunction<Integer, Integer, Integer>() {
             @Override
